@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stopwatch</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; display: grid; place-items: center; height: 100vh; background: #000; color: #fff; font: 600 9vw/1 ui-monospace, Menlo, Consolas, monospace; }
+  small { display: block; font-size: 2.4vw; font-weight: 400; color: #aaa; text-align: center; margin-top: 1vw; }
+</style>
+</head>
+<body>
+<div>
+  <div id="t">0.000</div>
+  <small>录屏计时用：逐帧读这个数（秒）。suites/pf-performance.md</small>
+</div>
+<script>
+  const el = document.getElementById('t');
+  const start = performance.now();
+  const tick = () => {
+    el.textContent = ((performance.now() - start) / 1000).toFixed(3);
+    requestAnimationFrame(tick);
+  };
+  tick();
+</script>
+</body>
+</html>

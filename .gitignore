@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+corpus/generated/
+corpus/real/
+runs/*/work/
